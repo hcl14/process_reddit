@@ -27,7 +27,17 @@ iconv -f UTF8 -t US-ASCII//TRANSLIT "$1.all.escaped.txt" > "submissions/$1.all_a
 
 rm "$1.all.escaped.txt"
 
+echo "Cleaning bad characters..."
 
+# produces out.txt
+
+javac CharFilter.java 
+
+java CharFilter "submissions/$1.all_ascii.txt" 
+
+rm "submissions/$1.all_ascii.txt" 
+
+mv out.txt "submissions/$1.all_ascii_cleaned.txt" 
 
 
 

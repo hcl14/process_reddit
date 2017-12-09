@@ -1,7 +1,9 @@
 #!/bin/bash
 
-filenames=""
+filenames="files"
 filelines=`cat $filename`
+
+javac CharFilter.java 
 
 for line in $filelines ; do
 
@@ -22,5 +24,12 @@ for line in $filelines ; do
 
     #remove reddit json
     rm $var;
+    
+    java CharFilter "comments/$var.all_ascii.txt" &&
+    
+    rm "comments/$var.all_ascii.txt" &&
+    
+    mv "out.txt" "comments/$var.all_ascii_cleaned.txt"
+    
 done
 
