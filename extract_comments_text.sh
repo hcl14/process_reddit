@@ -1,7 +1,7 @@
 #!/bin/bash
 
 filenames="files"
-filelines=`cat $filename`
+filelines=`cat $filenames`
 
 javac CharFilter.java 
 
