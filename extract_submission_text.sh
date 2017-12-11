@@ -37,6 +37,9 @@ java CharFilter "submissions/$1.all_ascii.txt"
 
 rm "submissions/$1.all_ascii.txt" 
 
+# remove long sequences of unknown shit
+sed -E -i 's/(\s*[^a-zA-Z]+\s*){7,}/\1/g' out.txt
+
 mv out.txt "submissions/$1.all_ascii_cleaned.txt" 
 
 
